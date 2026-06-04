@@ -1,0 +1,21 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+#loading{
+    width: 100%;
+}
+
+#download-link{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    display: flex;
+}
