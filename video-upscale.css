@@ -1,0 +1,216 @@
+
+.logo {
+    display: flex;
+    align-items: center;
+    height: 90px;
+}
+
+.logo img {
+    max-height: 60px;
+    width: auto;
+    display: block;
+    object-fit: contain;
+}
+
+/* Global Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #0b0b0b;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Header Styling Fixed */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background-color: rgba(11, 11, 11, 0.8);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #141414;
+}
+
+.logo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 150px;
+}
+
+.logo .logo-text {
+    font-size: 24px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    line-height: 1;
+    color: #ffffff;
+}
+
+.logo .dot {
+    color: #d2ff00;
+}
+
+.logo .sub-text {
+    display: block;
+    font-size: 10px;
+    color: #888;
+    margin-top: 2px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+
+.navbar a {
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #d2ff00;
+}
+
+.btn-start {
+    background-color: #d2ff00;
+    color: #000;
+    border: none;
+    padding: 12px 24px;
+    font-weight: 700;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(210, 255, 0, 0.3);
+}
+
+/* Page Content */
+.upscale-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.page-title {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.badge {
+    border: 1px solid #333;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 11px;
+    color: #d2ff00;
+    letter-spacing: 2px;
+}
+
+.page-title h1 {
+    font-size: 45px;
+    font-weight: 900;
+    margin-top: 15px;
+    letter-spacing: -1px;
+}
+
+.page-title p {
+    color: #666;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+/* Workspace Layout */
+.workspace {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+}
+
+.upload-box, .preview-box {
+    background-color: #141414;
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 380px;
+    text-align: center;
+    transition: border 0.3s;
+}
+
+.upload-box:hover {
+    border-color: #d2ff00;
+}
+
+.upload-icon {
+    background-color: #1c1d17;
+    width: 60px;
+    height: 60px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 20px;
+}
+
+.upload-box h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.upload-box p {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.btn-browse {
+    background-color: #1c1d17;
+    color: #ffffff;
+    border: 1px solid #333;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
+
+.btn-browse:hover {
+    background-color: #25261f;
+}
+
+.preview-placeholder {
+    color: #555;
+    font-size: 14px;
+}
+
+/* Download Button styling */
+.btn-download {
+    margin-top: 20px;
+    background-color: #222;
+    color: #555;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: not-allowed;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.btn-download.active {
+    background-color: #d2ff00;
+    color: #000;
+    cursor: pointer;
+    box-shadow: 0 0 15px rgba(210, 255, 0, 0.2);
+}

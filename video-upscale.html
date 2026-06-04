@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Upscale — Oru Design</title>
+    <link rel="stylesheet" href="video-upscale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/mp4-muxer@3.0.2/build/mp4-muxer.main.js"></script>
+</head>
+<body>
+
+    <header class="header">
+       <div class="logo">
+    <a href="index.html">
+        <img src="images/logo.png" alt="Oru Design">
+    </a>
+</div>
+
+        <nav class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="ai-tools.html">AI TOOLS</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+        <button class="btn-start">START PROJECT</button>
+    </header>
+
+    <main class="upscale-container">
+        <div class="page-title">
+            <span class="badge">ORU AI ENGINE</span>
+            <h1> VIDEO UPSCALE (2X)</h1>
+            <p>Upscale videos using client-side WebGPU acceleration with native MP4 container metadata.</p>
+        </div>
+
+        <div class="workspace">
+            <div class="upload-box" id="drop-zone">
+                <div class="upload-icon">
+                    <i class="fa-solid fa-clapperboard" style="color: #d2ff00;"></i>
+                </div>
+                <h3>Drag & Drop your video here</h3>
+                <p>Supports MP4, MOV up to 50MB</p>
+                <input type="file" id="file-input" accept="video/*" hidden>
+                <button class="btn-browse" onclick="document.getElementById('file-input').click()">Browse Video</button>
+            </div>
+
+            <div class="preview-box">
+                <div class="preview-placeholder">
+                    <p>Your real upscaled video output will appear here</p>
+                </div>
+                
+                <div id="progress-container" style="display: none; margin-bottom: 20px; width: 100%;">
+                    <p id="progress-text" style="color: #d2ff00; font-weight: 600; font-size: 14px;"></p>
+                    <div style="width: 100%; background: #1a1a1a; border: 1px solid #333; border-radius: 20px; height: 8px; margin-top: 8px; overflow: hidden;">
+                        <div id="progress-bar" style="width: 0%; background: #d2ff00; height: 100%; border-radius: 20px; transition: width 0.1s ease;"></div>
+                    </div>
+                </div>
+                
+                <video id="output-video" controls style="display: none; width: 100%; border-radius: 12px;"></video>
+                <button class="btn-download" id="download-btn" disabled style="width: 100%; margin-top: 15px;">Download Real 2X Enhanced Video</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="video-upscale.js"></script>
+</body>
+</html>

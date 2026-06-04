@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Video Downloader | Oru Design</title>
+
+    <link rel="stylesheet" href="video-downloader.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="logo">
+            <img src="images/logo.png" alt="Logo">
+        </div>
+
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="ai-tools.html">AI TOOLS</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+        <a href="#" class="start-btn">
+            START PROJECT
+        </a>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <h1>VIDEO DOWNLOADER</h1>
+
+        <p>
+            Paste any video URL and download instantly.
+        </p>
+
+        <div class="download-box">
+
+            <input
+                type="text"
+                id="videoUrl"
+                placeholder="Paste Video URL Here"
+            >
+
+            <button onclick="downloadVideo()">
+                DOWNLOAD
+            </button>
+
+        </div>
+
+        <div id="result"></div>
+
+    </section>
+
+<script src="video-downloader.js"></script>
+
+</body>
+</html>

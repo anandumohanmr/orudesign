@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upscale — Oru Design</title>
+    <link rel="stylesheet" href="image-upscale.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="header">
+          <!-- LOGO IMAGE -->
+    <a href="#" class="logo">
+
+        <img src="images/logo.png"
+             alt="oru design Logo"
+             class="logo__image">
+
+    </a>
+        </div>
+        <nav class="navbar">
+            <a href="index.html">HOME</a>
+            <a href="ai-tools.html">AI TOOLS</a>
+            <a href="services.html">SERVICES</a>
+            <a href="about.html">ABOUT</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+        <button class="btn-start">START PROJECT</button>
+    </header>
+
+    <main class="upscale-container">
+        <div class="page-title">
+            <span class="badge">AI TOOLS</span>
+            <h1>IMAGE UPSCALE</h1>
+            <p>Increase image quality using smart AI upscale technology.</p>
+        </div>
+
+        <div class="workspace">
+            <div class="upload-box" id="drop-zone">
+                <div class="upload-icon">
+                    <i class="fa-solid fa-bolt" style="color: #d2ff00;"></i>
+                </div>
+                <h3>Drag & Drop your image here</h3>
+                <p>or click to browse from device</p>
+                <input type="file" id="file-input" accept="image/*" hidden>
+                <button class="btn-browse" onclick="document.getElementById('file-input').click()">Browse Image</button>
+            </div>
+
+            <div class="preview-box">
+                <div class="preview-placeholder">
+                    <p>Your upscaled image will appear here</p>
+                </div>
+                <img id="output-image" src="" alt="Upscaled Output" style="display: none;">
+                <button class="btn-download" id="download-btn" disabled>Download Enhanced Image</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="image-upscale.js"></script>
+</body>
+</html>

@@ -1,0 +1,1585 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Services — Oru Design</title>
+
+    <!-- GOOGLE FONTS -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Mono:wght@400;700&display=swap"
+          rel="stylesheet">
+
+    <style>
+
+        /* =========================================
+           RESET
+        ========================================= */
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+        }
+
+        html{
+            scroll-behavior:smooth;
+        }
+
+        body{
+
+            background:#050505;
+
+            color:#ffffff;
+
+            font-family:'Space Mono', monospace;
+
+            overflow-x:hidden;
+        }
+
+        /* =========================================
+           HEADER
+        ========================================= */
+
+        .global-header{
+
+            position:fixed;
+
+            top:0;
+            left:0;
+
+            width:100%;
+
+            height:90px;
+
+            padding:0 7%;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            z-index:9999;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.85),
+                    rgba(0,0,0,0)
+                );
+
+            backdrop-filter:blur(10px);
+        }
+
+        /* LOGO */
+
+        .logo{
+
+            display:flex;
+
+            align-items:center;
+
+            text-decoration:none;
+        }
+
+        .logo img{
+
+            width:120px;
+        }
+
+        /* NAV */
+
+        .nav{
+
+            display:flex;
+
+            gap:42px;
+        }
+
+        .nav a{
+
+            color:rgba(255,255,255,0.72);
+
+            text-decoration:none;
+
+            font-size:12px;
+
+            letter-spacing:3px;
+
+            text-transform:uppercase;
+
+            position:relative;
+
+            transition:0.35s ease;
+        }
+
+        .nav a::after{
+
+            content:"";
+
+            position:absolute;
+
+            left:0;
+            bottom:-8px;
+
+            width:0%;
+
+            height:2px;
+
+            background:#dfff00;
+
+            transition:0.35s ease;
+        }
+
+        .nav a:hover{
+
+            color:#ffffff;
+        }
+
+        .nav a:hover::after{
+
+            width:100%;
+        }
+
+        /* =========================================
+           HERO SECTION
+        ========================================= */
+
+        .services-hero{
+
+            position:relative;
+
+            width:100%;
+
+            min-height:100vh;
+
+            padding:140px 7% 100px;
+
+            display:flex;
+
+            align-items:center;
+
+            justify-content:space-between;
+
+            gap:80px;
+
+            overflow:hidden;
+        }
+
+        /* GRID */
+
+        .hero-grid{
+
+            position:absolute;
+
+            inset:0;
+
+            background-image:
+                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+
+            background-size:70px 70px;
+
+            opacity:0.35;
+        }
+
+        /* GLOW */
+
+        .hero-glow{
+
+            position:absolute;
+
+            border-radius:50%;
+
+            filter:blur(120px);
+
+            opacity:0.12;
+        }
+
+        .hero-glow-1{
+
+            width:450px;
+            height:450px;
+
+            background:#dfff00;
+
+            top:-120px;
+            left:-120px;
+        }
+
+        .hero-glow-2{
+
+            width:420px;
+            height:420px;
+
+            background:#dfff00;
+
+            bottom:-150px;
+            right:-150px;
+        }
+
+        /* CONTENT */
+
+        .services-hero-content{
+
+            position:relative;
+
+            z-index:5;
+
+            max-width:850px;
+        }
+
+        /* MINI TITLE */
+
+        .services-mini-title{
+
+            color:#dfff00;
+
+            font-size:14px;
+
+            letter-spacing:5px;
+
+            margin-bottom:24px;
+
+            text-transform:uppercase;
+
+            animation:fadeUp 1s ease;
+        }
+
+        /* MAIN TITLE */
+
+        .services-main-title{
+
+            font-family:'Anton', sans-serif;
+
+            font-size:clamp(70px,10vw,170px);
+
+            line-height:0.88;
+
+            text-transform:uppercase;
+
+            margin-bottom:35px;
+
+            animation:fadeUp 1.2s ease;
+        }
+
+        /* DESCRIPTION */
+
+        .services-description{
+
+            max-width:650px;
+
+            color:rgba(255,255,255,0.65);
+
+            font-size:17px;
+
+            line-height:1.9;
+
+            margin-bottom:45px;
+
+            animation:fadeUp 1.4s ease;
+        }
+
+        /* BUTTONS */
+
+        .services-buttons{
+
+            display:flex;
+
+            gap:20px;
+
+            flex-wrap:wrap;
+        }
+
+        .hero-btn{
+
+            height:62px;
+
+            padding:0 34px;
+
+            border-radius:60px;
+
+            display:inline-flex;
+
+            align-items:center;
+
+            justify-content:center;
+
+            text-decoration:none;
+
+            font-size:14px;
+
+            font-weight:700;
+
+            letter-spacing:2px;
+
+            text-transform:uppercase;
+
+            transition:0.4s ease;
+        }
+
+        /* PRIMARY BUTTON */
+
+        .hero-btn-primary{
+
+            background:#dfff00;
+
+            color:#000000;
+
+            box-shadow:
+                0 15px 40px rgba(223,255,0,0.18);
+        }
+
+        .hero-btn-primary:hover{
+
+            transform:translateY(-5px);
+        }
+
+        /* SECONDARY BUTTON */
+
+        .hero-btn-secondary{
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            background:rgba(255,255,255,0.04);
+
+            color:#ffffff;
+        }
+
+        .hero-btn-secondary:hover{
+
+            border-color:#dfff00;
+
+            color:#dfff00;
+
+            transform:translateY(-5px);
+        }
+
+        /* RIGHT CARD */
+
+        .hero-right{
+
+            position:relative;
+
+            z-index:5;
+        }
+
+        .service-preview-card{
+
+            width:380px;
+
+            padding:40px;
+
+            border-radius:30px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(255,255,255,0.06),
+                    rgba(255,255,255,0.02)
+                );
+
+            border:1px solid rgba(255,255,255,0.08);
+
+            backdrop-filter:blur(12px);
+
+            animation:floatCard 6s ease-in-out infinite;
+        }
+
+        /* TAG */
+
+        .preview-tag{
+
+            display:inline-block;
+
+            padding:10px 16px;
+
+            border-radius:40px;
+
+            background:rgba(223,255,0,0.12);
+
+            color:#dfff00;
+
+            font-size:12px;
+
+            letter-spacing:2px;
+
+            margin-bottom:25px;
+        }
+
+        /* CARD TITLE */
+
+        .service-preview-card h3{
+
+            font-family:'Anton', sans-serif;
+
+            font-size:52px;
+
+            line-height:1;
+
+            margin-bottom:35px;
+
+            text-transform:uppercase;
+        }
+
+        /* LIST */
+
+        .preview-list{
+
+            display:flex;
+
+            flex-wrap:wrap;
+
+            gap:14px;
+        }
+
+        .preview-list span{
+
+            padding:12px 18px;
+
+            border-radius:40px;
+
+            background:rgba(255,255,255,0.05);
+
+            border:1px solid rgba(255,255,255,0.06);
+
+            color:rgba(255,255,255,0.85);
+
+            font-size:13px;
+
+            transition:0.3s ease;
+        }
+
+        .preview-list span:hover{
+
+            background:#dfff00;
+
+            color:#000000;
+
+            transform:translateY(-4px);
+        }
+
+        /* FLOATING TEXT */
+
+        .floating{
+
+            position:absolute;
+
+            color:rgba(223,255,0,0.08);
+
+            font-size:70px;
+
+            font-family:'Anton', sans-serif;
+
+            animation:floatIcon 8s ease-in-out infinite;
+        }
+
+        .floating-1{
+
+            top:10%;
+            left:8%;
+        }
+
+        .floating-2{
+
+            top:18%;
+            right:14%;
+        }
+
+        .floating-3{
+
+            bottom:14%;
+            left:12%;
+        }
+
+        .floating-4{
+
+            bottom:10%;
+            right:10%;
+        }
+
+        /* ANIMATIONS */
+
+        @keyframes floatCard{
+
+            0%{
+                transform:translateY(0px);
+            }
+
+            50%{
+                transform:translateY(-12px);
+            }
+
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        @keyframes floatIcon{
+
+            0%{
+                transform:translateY(0px);
+            }
+
+            50%{
+                transform:translateY(-18px);
+            }
+
+            100%{
+                transform:translateY(0px);
+            }
+        }
+
+        @keyframes fadeUp{
+
+            from{
+
+                opacity:0;
+
+                transform:translateY(40px);
+            }
+
+            to{
+
+                opacity:1;
+
+                transform:translateY(0);
+            }
+        }
+
+        /* RESPONSIVE */
+
+        @media(max-width:1100px){
+
+            .services-hero{
+
+                flex-direction:column;
+
+                justify-content:center;
+
+                text-align:center;
+            }
+
+            .services-buttons{
+
+                justify-content:center;
+            }
+        }
+
+        @media(max-width:768px){
+
+            .services-main-title{
+
+                font-size:80px;
+            }
+
+            .service-preview-card{
+
+                width:100%;
+            }
+
+            .nav{
+
+                gap:18px;
+            }
+
+            .nav a{
+
+                font-size:10px;
+
+                letter-spacing:1.5px;
+            }
+
+            .floating{
+
+                display:none;
+            }
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="global-header">
+
+        <a href="#"
+           class="logo">
+
+            <img src="images/logo.png"
+                 alt="Oru Design Logo">
+
+        </a>
+
+        <nav class="nav">
+
+            <a href="index.html">Home</a>
+
+            <a href="ai-tools.html">AI TOOLS</a>
+
+            <a href="services.html">Services</a>
+
+            <a href="about.html">about</a>
+
+            <a href="contact.html">contact</a>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="services-hero">
+
+        <!-- GRID -->
+
+        <div class="hero-grid"></div>
+
+        <!-- GLOW -->
+
+        <div class="hero-glow hero-glow-1"></div>
+
+        <div class="hero-glow hero-glow-2"></div>
+
+        <!-- FLOATING -->
+
+        <div class="floating floating-1">CREATE</div>
+
+        <div class="floating floating-2">DESIGN</div>
+
+        <div class="floating floating-3">MOTION</div>
+
+        <div class="floating floating-4">VISUALS</div>
+
+        <!-- LEFT -->
+
+        <div class="services-hero-content">
+
+            <p class="services-mini-title">
+
+                ORU DESIGN SERVICES
+
+            </p>
+
+            <h1 class="services-main-title">
+
+                WE CREATE<br>
+                DIGITAL<br>
+                EXPERIENCES.
+
+            </h1>
+
+            <p class="services-description">
+
+                Premium creative solutions for brands,
+                businesses, creators, and startups.
+                From graphic design to cinematic visuals,
+                we craft visuals that stand out.
+
+            </p>
+
+            <div class="services-buttons">
+
+                <a href="#services-section"
+                   class="hero-btn hero-btn-primary">
+
+                    Explore Services
+
+                </a>
+
+                <a href="https://wa.me/918157811334"
+                   class="hero-btn hero-btn-secondary">
+
+                    Contact Now
+
+                </a>
+
+            </div>
+
+        </div>
+
+        <!-- RIGHT -->
+
+        <div class="hero-right">
+
+            <div class="service-preview-card">
+
+                <span class="preview-tag">
+
+                    FEATURED
+
+                </span>
+
+                <h3>
+
+                    20+ Creative<br>
+                    Services
+
+                </h3>
+
+                <div class="preview-list">
+
+                    <span>Logo Design</span>
+
+                    <span>Branding</span>
+
+                    <span>UI/UX</span>
+
+                    <span>Video Editing</span>
+
+                    <span>Motion Graphics</span>
+
+                    <span>Social Media</span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</body>
+
+</html>
+
+
+
+<!-- =========================================
+     SECTION 02 — CREATIVE SERVICES GRID
+========================================= -->
+<link rel="stylesheet" href="services.css">
+<section class="creative-services-section"
+         id="services-section">
+
+    <!-- BACKGROUND GLOW -->
+
+    <div class="services-bg-glow"></div>
+
+    <!-- SECTION TOP -->
+
+    <div class="creative-services-top">
+
+        <p class="creative-services-label">
+
+            OUR EXPERTISE
+
+        </p>
+
+        <h2 class="creative-services-title">
+
+            Creative<br>
+            Solutions
+
+        </h2>
+
+        <p class="creative-services-text">
+
+            Premium creative services crafted
+            for brands, startups, creators,
+            and businesses who want visuals
+            that stand out from the crowd.
+
+        </p>
+
+    </div>
+
+    <!-- SERVICES GRID -->
+
+    <div class="creative-services-grid">
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                01
+            </div>
+
+            <div class="creative-service-icon">
+                ✦
+            </div>
+
+            <h3>Logo Design</h3>
+
+            <p>
+                Modern and memorable logo
+                identities for businesses.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                02
+            </div>
+
+            <div class="creative-service-icon">
+                ◉
+            </div>
+
+            <h3>Branding</h3>
+
+            <p>
+                Complete visual identity systems
+                with premium aesthetics.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                03
+            </div>
+
+            <div class="creative-service-icon">
+                ⬡
+            </div>
+
+            <h3>Social Media</h3>
+
+            <p>
+                Scroll-stopping social media
+                creatives and ad campaigns.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                04
+            </div>
+
+            <div class="creative-service-icon">
+                ✺
+            </div>
+
+            <h3>Poster Design</h3>
+
+            <p>
+                Cinematic and premium poster
+                concepts for promotions.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                05
+            </div>
+
+            <div class="creative-service-icon">
+                ◈
+            </div>
+
+            <h3>UI/UX Design</h3>
+
+            <p>
+                Modern digital interfaces with
+                smooth user experiences.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                06
+            </div>
+
+            <div class="creative-service-icon">
+                ✧
+            </div>
+
+            <h3>Video Editing</h3>
+
+            <p>
+                Professional editing with
+                cinematic storytelling feel.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                07
+            </div>
+
+            <div class="creative-service-icon">
+                ✦
+            </div>
+
+            <h3>Motion Graphics</h3>
+
+            <p>
+                Dynamic animations and modern
+                motion visual experiences.
+            </p>
+
+        </div>
+
+        <!-- CARD -->
+
+        <div class="creative-service-card">
+
+            <div class="creative-service-number">
+                08
+            </div>
+
+            <div class="creative-service-icon">
+                ◉
+            </div>
+
+            <h3>Brochure Design</h3>
+
+            <p>
+                Elegant brochures and company
+                profile presentation layouts.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SECTION 03 — MARQUEE SERVICES
+========================================= -->
+
+<section class="marquee-services-section">
+
+    <!-- TOP -->
+
+    <div class="marquee-services-top">
+
+        <p class="marquee-services-label">
+
+            FULL CREATIVE SOLUTIONS
+
+        </p>
+
+        <h2 class="marquee-services-title">
+
+            More Than<br>
+            Just Design
+
+        </h2>
+
+    </div>
+
+    <!-- MARQUEE 01 -->
+
+    <div class="marquee-wrapper">
+
+        <div class="marquee-track">
+
+            <span>Logo Design</span>
+
+            <span>Branding</span>
+
+            <span>UI/UX Design</span>
+
+            <span>Motion Graphics</span>
+
+            <span>Video Editing</span>
+
+            <span>Poster Design</span>
+
+            <span>Social Media Design</span>
+
+            <span>Visual Storytelling</span>
+
+            <span>Web Design</span>
+
+            <span>Creative Direction</span>
+
+            <!-- DUPLICATE -->
+
+            <span>Logo Design</span>
+
+            <span>Branding</span>
+
+            <span>UI/UX Design</span>
+
+            <span>Motion Graphics</span>
+
+            <span>Video Editing</span>
+
+            <span>Poster Design</span>
+
+            <span>Social Media Design</span>
+
+            <span>Visual Storytelling</span>
+
+            <span>Web Design</span>
+
+            <span>Creative Direction</span>
+
+        </div>
+
+    </div>
+
+    <!-- MARQUEE 02 -->
+
+    <div class="marquee-wrapper reverse">
+
+        <div class="marquee-track">
+
+            <span>Brochure Design</span>
+
+            <span>Packaging Design</span>
+
+            <span>Advertising Design</span>
+
+            <span>Instagram Reels</span>
+
+            <span>YouTube Thumbnails</span>
+
+            <span>Business Branding</span>
+
+            <span>Product Visuals</span>
+
+            <span>Corporate Identity</span>
+
+            <span>Creative Campaigns</span>
+
+            <span>Digital Experiences</span>
+
+            <!-- DUPLICATE -->
+
+            <span>Brochure Design</span>
+
+            <span>Packaging Design</span>
+
+            <span>Advertising Design</span>
+
+            <span>Instagram Reels</span>
+
+            <span>YouTube Thumbnails</span>
+
+            <span>Business Branding</span>
+
+            <span>Product Visuals</span>
+
+            <span>Corporate Identity</span>
+
+            <span>Creative Campaigns</span>
+
+            <span>Digital Experiences</span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================
+     SECTION 04 — PROCESS TIMELINE
+========================================= -->
+
+<section class="process-section">
+
+    <!-- BACKGROUND GLOW -->
+
+    <div class="process-bg-glow"></div>
+
+    <!-- LEFT -->
+
+    <div class="process-left">
+
+        <p class="process-mini-title">
+
+            HOW WE WORK
+
+        </p>
+
+        <h2 class="process-main-title">
+
+            Creative<br>
+            Process
+        </h2>
+
+        <p class="process-description">
+
+            Every project at Oru Design follows
+            a structured premium workflow —
+            from strategy and concept creation
+            to execution and final delivery.
+
+        </p>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="process-right">
+
+        <!-- ITEM -->
+
+        <div class="process-item">
+
+            <div class="process-number">
+                01
+            </div>
+
+            <div class="process-content">
+
+                <h3>Research & Strategy</h3>
+
+                <p>
+                    Understanding your brand,
+                    audience, goals, and market
+                    positioning before starting
+                    the creative process.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="process-item">
+
+            <div class="process-number">
+                02
+            </div>
+
+            <div class="process-content">
+
+                <h3>Creative Direction</h3>
+
+                <p>
+                    Building strong visual ideas,
+                    moodboards, layouts, concepts,
+                    and design systems.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="process-item">
+
+            <div class="process-number">
+                03
+            </div>
+
+            <div class="process-content">
+
+                <h3>Design Execution</h3>
+
+                <p>
+                    Crafting high-quality visuals
+                    with attention to typography,
+                    colors, composition, and detail.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="process-item">
+
+            <div class="process-number">
+                04
+            </div>
+
+            <div class="process-content">
+
+                <h3>Delivery & Support</h3>
+
+                <p>
+                    Final optimized delivery with
+                    revisions, support, and proper
+                    export formats for all platforms.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SECTION 05 — STATS / ACHIEVEMENTS
+========================================= -->
+
+<section class="stats-section">
+
+    <!-- BACKGROUND -->
+
+    <div class="stats-grid-bg"></div>
+
+    <div class="stats-glow stats-glow-1"></div>
+
+    <div class="stats-glow stats-glow-2"></div>
+
+    <!-- TOP -->
+
+    <div class="stats-top">
+
+        <p class="stats-mini-title">
+
+            ORU DESIGN JOURNEY
+
+        </p>
+
+        <h2 class="stats-main-title">
+
+            Results<br>
+            That Matter
+        </h2>
+
+        <p class="stats-description">
+
+            Building premium digital visuals,
+            modern branding experiences, and
+            impactful creative content for
+            brands and businesses.
+
+        </p>
+
+    </div>
+
+    <!-- STATS GRID -->
+
+    <div class="stats-grid">
+
+        <!-- ITEM -->
+
+        <div class="stat-card">
+
+            <h3>8+</h3>
+
+            <p>Years Experience</p>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="stat-card">
+
+            <h3>300+</h3>
+
+            <p>Projects Completed</p>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="stat-card">
+
+            <h3>120+</h3>
+
+            <p>Happy Clients</p>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="stat-card">
+
+            <h3>20+</h3>
+
+            <p>Creative Services</p>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="stat-card">
+
+            <h3>100%</h3>
+
+            <p>Premium Quality Focus</p>
+
+        </div>
+
+        <!-- ITEM -->
+
+        <div class="stat-card">
+
+            <h3>24/7</h3>
+
+            <p>Creative Support</p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================
+     SECTION 06 — FINAL CTA
+========================================= -->
+
+<section class="final-cta-section">
+
+    <!-- BACKGROUND -->
+
+    <div class="cta-grid-bg"></div>
+
+    <div class="cta-glow cta-glow-1"></div>
+
+    <div class="cta-glow cta-glow-2"></div>
+
+    <!-- FLOATING ELEMENTS -->
+
+    <div class="cta-float cta-float-1"></div>
+
+    <div class="cta-float cta-float-2"></div>
+
+    <div class="cta-float cta-float-3"></div>
+
+    <!-- CONTENT -->
+
+    <div class="final-cta-content">
+
+        <p class="final-cta-mini">
+
+            LET’S BUILD SOMETHING PREMIUM
+
+        </p>
+
+        <h2 class="final-cta-title">
+
+            Ready To<br>
+            Elevate Your<br>
+            Brand?
+        </h2>
+
+        <p class="final-cta-description">
+
+            Oru Design creates modern visuals,
+            cinematic content, branding systems,
+            and premium digital experiences
+            designed to make your business stand out.
+
+        </p>
+
+        <!-- BUTTONS -->
+
+        <div class="final-cta-buttons">
+
+            <!-- WHATSAPP -->
+
+            <a href="https://wa.me/918157811334?text=Hello%20Oru%20Design%2C%20I%20would%20like%20to%20know%20more%20about%20your%20services."
+               target="_blank"
+               class="final-cta-btn primary-btn">
+
+                Start Project
+
+            </a>
+
+            <!-- PORTFOLIO -->
+
+            <a href="https://www.behance.net/anandumohanmr"
+               target="_blank"
+               class="final-cta-btn secondary-btn">
+
+                View Portfolio
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================================
+     SECTION 07 — FOOTER
+========================================= -->
+
+<footer class="premium-footer">
+
+    <!-- BG -->
+
+    <div class="footer-grid-bg"></div>
+
+    <div class="footer-glow"></div>
+
+    <!-- TOP -->
+
+    <div class="footer-top">
+
+        <!-- LEFT -->
+
+        <div class="footer-brand">
+
+            <img src="images/logo.png"
+                 alt="Oru Design Logo"
+                 class="footer-logo">
+
+            <p class="footer-brand-text">
+
+                Premium creative studio crafting
+                modern visuals, cinematic content,
+                branding systems, and digital
+                experiences for businesses.
+
+            </p>
+
+        </div>
+
+        <!-- CENTER -->
+
+        <div class="footer-links-wrapper">
+
+            <!-- MENU -->
+
+            <div class="footer-links-column">
+
+                <h4>Navigation</h4>
+
+                <a href="index.html">Home</a>
+
+                <a href="services.html">Services</a>
+
+                <a href="#work">Work</a>
+
+                <a href="#contact">Contact</a>
+
+            </div>
+
+            <!-- SERVICES -->
+
+            <div class="footer-links-column">
+
+                <h4>Services</h4>
+
+                <a href="#">Logo Design</a>
+
+                <a href="#">Branding</a>
+
+                <a href="#">UI/UX Design</a>
+
+                <a href="#">Motion Graphics</a>
+
+                <a href="#">Video Editing</a>
+
+            </div>
+
+            <!-- CONTACT -->
+
+            <div class="footer-links-column">
+
+                <h4>Contact</h4>
+
+                <a href="mailto:orudesignindia@gmail.com">
+                    orudesignindia@gmail.com
+                </a>
+
+                <a href="tel:+918157811334">
+                    +91 81578 11334
+                </a>
+
+                <span class="footer-location">
+
+                    Elamakkara, Kochi,
+                    Kerala, India
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SOCIAL -->
+
+    <div class="footer-socials">
+
+        <a href="https://www.instagram.com/oru.design.in/?hl=en"
+           target="_blank">
+
+            Instagram
+
+        </a>
+
+        <a href="https://www.behance.net/anandumohanmr"
+           target="_blank">
+
+            Behance
+
+        </a>
+
+        <a href="https://wa.me/918157811334"
+           target="_blank">
+
+            WhatsApp
+
+        </a>
+
+    </div>
+
+    <!-- BOTTOM -->
+
+    <div class="footer-bottom">
+
+        <p>
+
+            © 2026 Oru Design.
+            All Rights Reserved.
+
+        </p>
+
+        <p>
+
+            Designed By Oru Design
+
+        </p>
+
+    </div>
+
+</footer>
+
