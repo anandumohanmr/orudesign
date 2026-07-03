@@ -1,0 +1,209 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+video {
+    width: 100%;
+    height: 100%;
+    object-fit: fill;
+}
+
+#loading{
+    width: 100%;
+}
+
+#download-link{
+    position: relative;
+    margin: auto;
+    width: 100%;
+    display: flex;
+}
+/* ===========================================================
+   MOBILE RESPONSIVE
+=========================================================== */
+
+@media (max-width: 992px){
+
+    .max-w-7xl{
+        max-width:100%;
+        padding:0 20px;
+    }
+
+    nav{
+        padding:12px 0;
+    }
+
+    nav .flex.justify-between{
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        gap:15px;
+    }
+
+    .logo img,
+    .logo-img{
+        height:42px;
+        width:auto;
+    }
+
+    .hidden.md\:flex{
+        display:none !important;
+    }
+
+    .mobile-menu-btn{
+        display:flex;
+    }
+
+    h1{
+        font-size:54px !important;
+        line-height:1;
+    }
+
+    h2{
+        font-size:38px !important;
+    }
+
+    p{
+        font-size:16px;
+        line-height:1.7;
+    }
+
+    section{
+        padding:80px 20px;
+    }
+
+    .grid{
+        grid-template-columns:1fr !important;
+        gap:25px;
+    }
+
+    .card{
+        width:100%;
+    }
+
+    button,
+    .btn,
+    .btn-start{
+        width:100%;
+        justify-content:center;
+    }
+
+    img,
+    video,
+    canvas{
+        width:100%;
+        height:auto;
+    }
+
+    input,
+    select{
+        width:100%;
+    }
+
+}
+
+/* ===========================================================
+   MOBILE
+=========================================================== */
+
+@media (max-width:768px){
+
+    body{
+        overflow-x:hidden;
+    }
+
+    .navbar{
+        padding:12px 0;
+    }
+
+    .logo img,
+    .logo-img{
+        height:38px;
+    }
+
+    .hero{
+        padding-top:110px;
+    }
+
+    .hero h1{
+        font-size:42px !important;
+    }
+
+    .hero p{
+        font-size:15px;
+    }
+
+    .container{
+        width:100%;
+        padding:0 18px;
+    }
+
+    .upload-area{
+        padding:25px;
+    }
+
+    .preview-container{
+        flex-direction:column;
+    }
+
+    .before,
+    .after{
+        width:100%;
+    }
+
+    .controls{
+        display:flex;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .controls>*{
+        width:100%;
+    }
+
+    footer{
+        text-align:center;
+    }
+
+}
+
+/* ===========================================================
+   SMALL MOBILE
+=========================================================== */
+
+@media (max-width:480px){
+
+    .logo img,
+    .logo-img{
+        height:34px;
+    }
+
+    h1{
+        font-size:34px !important;
+    }
+
+    h2{
+        font-size:28px !important;
+    }
+
+    p{
+        font-size:14px;
+    }
+
+    .upload-area{
+        padding:20px;
+        border-radius:18px;
+    }
+
+    .btn,
+    button{
+        height:52px;
+        font-size:15px;
+    }
+
+    .card{
+        padding:20px;
+    }
+
+}
