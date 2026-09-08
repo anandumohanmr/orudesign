@@ -1,12 +1,19 @@
 <!-- =========================================
      AI TOOLS SECTION 1
 ========================================= -->
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
 
     <meta charset="UTF-8">
 
     <meta name="viewport"
           content="width=device-width, initial-scale=1.0">
+
+    <!-- GLOBAL SITE CHROME -->
+    <link rel="stylesheet" href="global.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <title>AI Tools — Oru Design</title>
 
@@ -28,45 +35,45 @@
           href="ai-tools.css">
 
 </head>
-<header class="ai-header">
 
-    <!-- LOGO -->
+<body>
 
-    <a href="index.html" class="ai-logo">
+<header class="site-header" data-site-header>
 
-        <img src="images/logo.png"
-             alt="Oru Design Logo">
+    <div class="site-header__inner">
 
-    </a>
+        <a href="index.html" class="site-logo" aria-label="Oru Design — Home">
+            <span class="site-logo__glow" aria-hidden="true"></span>
+            <img src="images/logo.png" alt="Oru Design logo" class="site-logo__image">
+        </a>
 
-    <!-- CENTER TITLE -->
+        <nav class="site-nav" aria-label="Primary">
+            <a href="index.html" class="site-nav__link">Home</a>
+            <a href="ai-tools.html" class="site-nav__link">AI Tools</a>
+            <a href="services.html" class="site-nav__link">Services</a>
+            <a href="about.html" class="site-nav__link">About</a>
+            <a href="contact.html" class="site-nav__link">Contact</a>
+        </nav>
 
-   <div class="ai-mini-badge">
+        <div class="site-header__actions">
+            <a href="contact.html" class="site-cta">Start Project</a>
 
-    AI TOOLS
-
-</div>
+            <button type="button" class="site-nav-toggle" data-nav-toggle aria-expanded="false" aria-controls="site-mobile-nav" aria-label="Toggle menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
 
     </div>
 
-    <!-- NAVIGATION -->
-
-    <nav class="ai-nav">
-
-        <a href="index.html">Home</a>
-        <a href="services.html">Services</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-
+    <nav id="site-mobile-nav" class="site-mobile-nav" aria-label="Mobile">
+        <div class="site-mobile-nav__inner">
+            <a href="index.html">Home</a>
+            <a href="ai-tools.html">AI Tools</a>
+            <a href="services.html">Services</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+        </div>
     </nav>
-
-    <!-- BUTTON -->
-
-    <a href="#" class="ai-header-btn">
-
-        Start Project
-
-    </a>
 
 </header>
 
@@ -234,11 +241,7 @@ class="tool-card">
 
         <!-- CARD 3 -->
 
-<a href="/backend/src/index.html" class="tool-card">
-    <div class="tool-icon">🎬</div>
-    <h3>VIDEO UPSCALER</h3>
-</a>
-           
+<a href="video-upscale.html" class="tool-card">
 
             <div class="tool-icon">
 
@@ -1114,3 +1117,77 @@ class="tool-card">
     </div>
 
 </section>
+
+<!-- =========================================================
+     SITE FOOTER
+========================================================= -->
+<footer class="site-footer">
+
+    <div class="site-footer__grid">
+
+        <div class="site-footer__brand">
+            <h2>ORU DESIGN</h2>
+            <p>
+                Premium creative studio focused on graphic design,
+                branding, motion graphics, UI/UX and visual storytelling.
+            </p>
+        </div>
+
+        <div class="site-footer__columns">
+
+            <div class="site-footer__col">
+                <h4>Navigation</h4>
+                <a href="index.html">Home</a>
+                <a href="ai-tools.html">AI Tools</a>
+                <a href="services.html">Services</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <div class="site-footer__col">
+                <h4>Services</h4>
+                <a href="services.html">Graphic Design</a>
+                <a href="services.html">Motion Graphics</a>
+                <a href="services.html">UI/UX Design</a>
+                <a href="services.html">Branding</a>
+                <a href="services.html">Video Editing</a>
+            </div>
+
+            <div class="site-footer__col">
+                <h4>Connect</h4>
+                <a href="mailto:orudesignindia@gmail.com">Email</a>
+                <a href="https://www.instagram.com/oru.design.in/?hl=en" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.behance.net/anandumohanmr" target="_blank" rel="noopener">Behance</a>
+                <a href="https://wa.me/918157811334" target="_blank" rel="noopener">WhatsApp</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="site-footer__divider"></div>
+
+    <div class="site-footer__bottom">
+        <p>&copy; 2026 Oru Design. All rights reserved.</p>
+
+        <div class="site-footer__socials">
+            <a href="https://www.instagram.com/oru.design.in/?hl=en" target="_blank" rel="noopener" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.behance.net/anandumohanmr" target="_blank" rel="noopener" aria-label="Behance">
+                <i class="fab fa-behance"></i>
+            </a>
+            <a href="https://wa.me/918157811334" target="_blank" rel="noopener" aria-label="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="site-footer__bg-text" aria-hidden="true">ORU DESIGN</div>
+
+</footer>
+
+<script src="global.js"></script>
+
+</body>
+</html>
