@@ -1,207 +1,215 @@
-// ============================================================================
-// CONFIGURATION & INITIALIZATION
-// ============================================================================
-// WARNING: Storing production API keys in client-side JS exposes them to users.
-// Consider channeling this through a secure backend server later.
-const GEMINI_API_KEY = "AQ.Ab8RN6KI_cVw0r-JbEhzLbPGpRzQ4z2u5xJoqxtu9TwcrvsKyQ"; 
+/* ============================================
+   ORU AI Assistant — chat logic
+   Uses Pollinations.ai's free, keyless,
+   OpenAI-compatible text endpoint:
+   https://text.pollinations.ai/openai
+   ============================================ */
 
-console.log("JS LOADED");
+(function () {
+  "use strict";
 
-// DOM Elements
-const sendBtn = document.getElementById("sendBtn");
-const userInput = document.getElementById("userInput");
-const chatMessages = document.getElementById("chatMessages");
-const newChat = document.getElementById("newChat");
+  const chatMessages = document.getElementById("chatMessages");
+  const userInput = document.getElementById("userInput");
+  const sendBtn = document.getElementById("sendBtn");
+  const newChatBtn = document.getElementById("newChat");
+  const chatHistoryList = document.getElementById("chatHistory");
 
-// ============================================================================
-// HELPER FUNCTIONS
-// ============================================================================
+  const SYSTEM_PROMPT =
+    "You are ORU AI Assistant, the helpful in-house assistant for Oru Design, " +
+    "a creative studio for branding, motion graphics, UI/UX design and AI-powered tools. " +
+    "You help with content writing, graphic design ideas, marketing & branding, business support, " +
+    "coding & development, AI prompts & automation, research & analysis, productivity & planning, " +
+    "education, and general knowledge. Keep answers clear, friendly, and reasonably concise.";
 
-/**
- * Automatically scrolls the chat window to the bottommost message.
- */
-function scrollBottom() {
-    if (chatMessages) {
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-    }
-}
+  // Running conversation sent to the API (system + turns).
+  let conversation = [{ role: "system", content: SYSTEM_PROMPT }];
 
-/**
- * Parses basic Markdown typography format syntax into standard readable HTML.
- */
-function formatAIResponse(text) {
-    if (!text) return "No response received.";
+  const WELCOME_HTML = `
+    👋 Hello!
+    <br><br>
+    I'm ORU AI Assistant.
+    <br><br>
+    Ask me anything about:
+    <br><br>
+    • Content Writing<br>
+    • Graphic Design Ideas<br>
+    • Marketing & Branding<br>
+    • Business Support<br>
+    • Coding & Development<br>
+    • AI Prompts & Automation<br>
+    • Research & Analysis<br>
+    • Productivity & Planning<br>
+    • Education & Learning<br>
+    • General Knowledge Questions<br>
+  `;
 
-    let formatted = text;
+  function escapeHtml(str) {
+    const div = document.createElement("div");
+    div.textContent = str;
+    return div.innerHTML;
+  }
 
-    // 1. Escape basic HTML elements to prevent accidental layout breaks or XSS
-    formatted = formatted
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
+  // Turn plain text into simple chat-friendly HTML (line breaks preserved, safe from injection).
+  function formatForDisplay(str) {
+    return escapeHtml(str).replace(/\n/g, "<br>");
+  }
 
-    // 2. Convert markdown bold (**text**) to HTML strong tags
-    formatted = formatted.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+  function scrollToBottom() {
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  }
 
-    // 3. Convert structural line breaks into standard HTML breaks
-    formatted = formatted.replace(/\n/g, "<br>");
+  function addMessage(role, html) {
+    const wrapper = document.createElement("div");
+    wrapper.className = role === "user" ? "user-message" : "ai-message";
 
-    return formatted;
-}
+    const avatar = document.createElement("div");
+    avatar.className = "message-avatar";
+    avatar.textContent = role === "user" ? "U" : "AI";
 
-// ============================================================================
-// GEMINI API INTEGRATION
-// ============================================================================
+    const content = document.createElement("div");
+    content.className = "message-content";
+    content.innerHTML = html;
 
-/**
- * Fetches content dynamically using the native Google Gemini API.
- */
-async function getAIResponse(prompt) {
-    try {
-        // FIXED: Updated endpoint from 'v1beta' to stable 'v1' 
-        // FIXED: Updated model path string from 'gemini-1.5-flash' to 'gemini-2.5-flash'
-        const response = await fetch(
-            `https://generativelanguage.googleapis.com/v1/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({
-                    contents: [
-                        {
-                            parts: [
-                                {
-                                    text: `You are ORU AI. You are an expert in Graphic Design, Branding, Social Media Marketing, Logo Design, HTML, CSS, JavaScript, WordPress, and Study Abroad Marketing.\n\nUser Question: ${prompt}`
-                                }
-                            ]
-                        }
-                    ]
-                })
-            }
-        );
+    wrapper.appendChild(avatar);
+    wrapper.appendChild(content);
+    chatMessages.appendChild(wrapper);
+    scrollToBottom();
 
-        const data = await response.json();
+    return content; // return content node so callers can update it (e.g. typing -> real reply)
+  }
 
-        if (!response.ok) {
-            console.error("Gemini API Error Structural Payload:", data);
-            const localizedError = data?.error?.message || `Status Code ${response.status}`;
-            return `API Error: ${localizedError}`;
-        }
+  function addTypingIndicator() {
+    const wrapper = document.createElement("div");
+    wrapper.className = "ai-message";
+    wrapper.id = "typingIndicator";
 
-        console.log("Gemini API Success Log:", data);
-        return data?.candidates?.[0]?.content?.parts?.[0]?.text || "No response received.";
+    const avatar = document.createElement("div");
+    avatar.className = "message-avatar";
+    avatar.textContent = "AI";
 
-    } catch (error) {
-        console.error("Fatal Connection or Network interface failure:", error);
-        return "Unable to connect to Gemini AI. Check your internet connection or console logs.";
-    }
-}
+    const typing = document.createElement("div");
+    typing.className = "typing";
+    typing.innerHTML = "<span></span><span></span><span></span>";
 
-// ============================================================================
-// CHAT LOGIC AND EVENT FLOWS
-// ============================================================================
+    wrapper.appendChild(avatar);
+    wrapper.appendChild(typing);
+    chatMessages.appendChild(wrapper);
+    scrollToBottom();
+  }
 
-/**
- * Triggers the typing bubble layout and transitions elements when processing completes.
- */
-async function showTyping(message) {
-    const typingHTML = `
-    <div class="ai-message" id="typingBox">
-        <div class="message-avatar">AI</div>
-        <div class="message-content">
-            <div class="typing">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    `;
+  function removeTypingIndicator() {
+    const el = document.getElementById("typingIndicator");
+    if (el) el.remove();
+  }
 
-    chatMessages.insertAdjacentHTML("beforeend", typingHTML);
-    scrollBottom();
+  function autoResizeTextarea() {
+    userInput.style.height = "auto";
+    userInput.style.height = Math.min(userInput.scrollHeight, 160) + "px";
+  }
 
-    // Query Native Gemini Endpoint
-    const aiReply = await getAIResponse(message);
-    
-    // Clear typing bubble element smoothly from layout
-    const typingBox = document.getElementById("typingBox");
-    if (typingBox) {
-        typingBox.remove();
+  function setSending(isSending) {
+    sendBtn.disabled = isSending;
+    sendBtn.textContent = isSending ? "..." : "Send";
+    userInput.disabled = isSending;
+  }
+
+  async function fetchAIReply(messages) {
+    const response = await fetch("https://text.pollinations.ai/openai", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        model: "openai",
+        messages: messages,
+        stream: false,
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error("API request failed with status " + response.status);
     }
 
-    // Safely parse raw markdown tokens into human-readable browser layouts
-    const formattedReply = formatAIResponse(aiReply);
+    const data = await response.json();
+    const reply =
+      data && data.choices && data.choices[0] && data.choices[0].message
+        ? data.choices[0].message.content
+        : null;
 
-    const aiHTML = `
-    <div class="ai-message">
-        <div class="message-avatar">AI</div>
-        <div class="message-content">${formattedReply}</div>
-    </div>
-    `;
+    if (!reply) {
+      throw new Error("No content in API response");
+    }
 
-    chatMessages.insertAdjacentHTML("beforeend", aiHTML);
-    scrollBottom();
-}
+    return reply;
+  }
 
-/**
- * Validates inputs from text area fields and submits strings down the pipeline.
- */
-async function sendMessage() {
-    if (!userInput) return;
-    
-    const message = userInput.value.trim();
-    if (!message) return; 
+  async function sendMessage() {
+    const text = userInput.value.trim();
+    if (!text) return;
 
-    const userHTML = `
-    <div class="user-message">
-        <div class="message-avatar">U</div>
-        <div class="message-content">${message}</div>
-    </div>
-    `;
+    addMessage("user", formatForDisplay(text));
+    conversation.push({ role: "user", content: text });
 
-    chatMessages.insertAdjacentHTML("beforeend", userHTML);
     userInput.value = "";
-    scrollBottom();
+    autoResizeTextarea();
+    setSending(true);
+    addTypingIndicator();
 
-    await showTyping(message);
-}
+    try {
+      const reply = await fetchAIReply(conversation);
+      removeTypingIndicator();
+      addMessage("ai", formatForDisplay(reply));
+      conversation.push({ role: "assistant", content: reply });
+    } catch (err) {
+      console.error("ORU AI Assistant error:", err);
+      removeTypingIndicator();
+      addMessage(
+        "ai",
+        "⚠️ Sorry, I couldn't reach the AI service right now. Please check your connection and try again in a moment."
+      );
+    } finally {
+      setSending(false);
+      userInput.focus();
+    }
+  }
 
-// ============================================================================
-// EVENT LISTENERS REGISTER
-// ============================================================================
+  function startNewChat() {
+    conversation = [{ role: "system", content: SYSTEM_PROMPT }];
+    chatMessages.innerHTML = "";
+    addMessage("ai", WELCOME_HTML);
+    userInput.value = "";
+    autoResizeTextarea();
+    userInput.focus();
+  }
 
-// Clear Screen and Display Default Greeting Node
-if (newChat && chatMessages) {
-    newChat.addEventListener("click", () => {
-        chatMessages.innerHTML = `
-        <div class="ai-message">
-            <div class="message-avatar">AI</div>
-            <div class="message-content">
-                👋 Hello Anandu!<br><br>
-                I'm ORU AI Assistant.<br><br>
-                How can I help you today?
-            </div>
-        </div>
-        `;
-        scrollBottom();
+  // --- Event wiring ---
+
+  sendBtn.addEventListener("click", sendMessage);
+
+  userInput.addEventListener("keydown", function (e) {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage();
+    }
+  });
+
+  userInput.addEventListener("input", autoResizeTextarea);
+
+  newChatBtn.addEventListener("click", startNewChat);
+
+  // Clicking a history item just loads it as a fresh chat placeholder for now
+  // (no persistence layer yet) so the UI doesn't feel dead.
+  if (chatHistoryList) {
+    chatHistoryList.addEventListener("click", function (e) {
+      const li = e.target.closest("li");
+      if (!li) return;
+      startNewChat();
+      addMessage(
+        "ai",
+        "This is a placeholder for the saved chat: <strong>" +
+          escapeHtml(li.textContent.trim()) +
+          "</strong>. Chat history isn't persisted yet — this button is ready for that feature."
+      );
     });
-}
+  }
 
-// Watch Action Button Submit Triggers
-if (sendBtn) {
-    sendBtn.addEventListener("click", sendMessage);
-}
-
-// Listen for Physical Keyboard Return Submissions
-if (userInput) {
-    userInput.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" && !e.shiftKey) {
-            e.preventDefault(); 
-            sendMessage();
-        }
-    });
-}
-
-console.log("ORU AI Loaded Successfully");
+  autoResizeTextarea();
+})();
