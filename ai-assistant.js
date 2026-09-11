@@ -1,12 +1,38 @@
 /* ============================================
    ORU AI Assistant — chat logic
-   Uses Pollinations.ai's free, keyless,
-   OpenAI-compatible text endpoint:
-   https://text.pollinations.ai/openai
+   Uses Google's Gemini API free tier
+   (Pollinations' text API now requires a paid
+   key/"Pollen" balance for every request, so it
+   no longer works without signing up either —
+   Gemini's free tier is the more reliable option
+   as of Sept 2026).
+
+   SETUP — do this before the chatbot will work:
+   1. Go to https://aistudio.google.com/apikey and
+      sign in with any Google account (free, no
+      card needed) to generate an API key.
+   2. Paste that key below as GEMINI_API_KEY.
+   3. IMPORTANT: this key will be visible to anyone
+      who views your page source. In Google Cloud
+      Console, open the key's settings and add an
+      "HTTP referrer" restriction limited to your
+      domain (e.g. https://orudesign.in/*) so it
+      can't be used from anywhere else. For a
+      production site it's even safer to route this
+      call through a small serverless function
+      (Cloudflare Worker / Vercel function) that
+      holds the key server-side instead.
    ============================================ */
 
 (function () {
   "use strict";
+
+  const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY_HERE"; // <-- paste your free key here
+  const GEMINI_MODEL = "gemini-2.0-flash";
+  const GEMINI_URL =
+    "https://generativelanguage.googleapis.com/v1beta/models/" +
+    GEMINI_MODEL +
+    ":generateContent";
 
   const chatMessages = document.getElementById("chatMessages");
   const userInput = document.getElementById("userInput");
@@ -21,8 +47,8 @@
     "coding & development, AI prompts & automation, research & analysis, productivity & planning, " +
     "education, and general knowledge. Keep answers clear, friendly, and reasonably concise.";
 
-  // Running conversation sent to the API (system + turns).
-  let conversation = [{ role: "system", content: SYSTEM_PROMPT }];
+  // Running conversation sent to the API. Gemini format: role is "user" or "model".
+  let conversation = [];
 
   const WELCOME_HTML = `
     👋 Hello!
@@ -113,25 +139,43 @@
     userInput.disabled = isSending;
   }
 
-  async function fetchAIReply(messages) {
-    const response = await fetch("https://text.pollinations.ai/openai", {
+  async function fetchAIReply(history) {
+    if (!GEMINI_API_KEY || GEMINI_API_KEY === "YOUR_GEMINI_API_KEY_HERE") {
+      throw new Error(
+        "Missing Gemini API key — add your free key from https://aistudio.google.com/apikey at the top of ai-assistant.js"
+      );
+    }
+
+    const response = await fetch(GEMINI_URL, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        "x-goog-api-key": GEMINI_API_KEY,
+      },
       body: JSON.stringify({
-        model: "openai",
-        messages: messages,
-        stream: false,
+        system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+        contents: history,
       }),
     });
 
     if (!response.ok) {
-      throw new Error("API request failed with status " + response.status);
+      const errBody = await response.text().catch(function () {
+        return "";
+      });
+      throw new Error(
+        "API request failed with status " + response.status + " " + errBody
+      );
     }
 
     const data = await response.json();
     const reply =
-      data && data.choices && data.choices[0] && data.choices[0].message
-        ? data.choices[0].message.content
+      data &&
+      data.candidates &&
+      data.candidates[0] &&
+      data.candidates[0].content &&
+      data.candidates[0].content.parts &&
+      data.candidates[0].content.parts[0]
+        ? data.candidates[0].content.parts[0].text
         : null;
 
     if (!reply) {
@@ -146,7 +190,7 @@
     if (!text) return;
 
     addMessage("user", formatForDisplay(text));
-    conversation.push({ role: "user", content: text });
+    conversation.push({ role: "user", parts: [{ text: text }] });
 
     userInput.value = "";
     autoResizeTextarea();
@@ -157,13 +201,16 @@
       const reply = await fetchAIReply(conversation);
       removeTypingIndicator();
       addMessage("ai", formatForDisplay(reply));
-      conversation.push({ role: "assistant", content: reply });
+      conversation.push({ role: "model", parts: [{ text: reply }] });
     } catch (err) {
       console.error("ORU AI Assistant error:", err);
       removeTypingIndicator();
+      const isKeyError = /API key/i.test(err.message || "");
       addMessage(
         "ai",
-        "⚠️ Sorry, I couldn't reach the AI service right now. Please check your connection and try again in a moment."
+        isKeyError
+          ? "⚠️ No Gemini API key is set up yet. Add a free key from aistudio.google.com/apikey to ai-assistant.js to turn this chatbot on."
+          : "⚠️ Sorry, I couldn't reach the AI service right now. Please check your connection and try again in a moment."
       );
     } finally {
       setSending(false);
@@ -172,7 +219,7 @@
   }
 
   function startNewChat() {
-    conversation = [{ role: "system", content: SYSTEM_PROMPT }];
+    conversation = [];
     chatMessages.innerHTML = "";
     addMessage("ai", WELCOME_HTML);
     userInput.value = "";
