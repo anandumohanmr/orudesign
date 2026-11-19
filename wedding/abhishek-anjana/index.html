@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abhishek &amp; Anjana | Wedding 26 November 2026</title>
+<meta name="description" content="Abhishek Mohan weds Anjana Suresh - Thursday 26 November 2026, Mass Auditorium, Mankamkuzhy, Mavelikara">
+<meta name="theme-color" content="#2a0d12">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&family=Great+Vibes&family=Allura&family=Parisienne&family=Playfair+Display:ital,wght@0,500;1,500&family=Noto+Serif+Malayalam:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body class="locked">
+
+<!-- ============ TEMPLE DOOR INTRO ============ -->
+<div id="intro">
+  <div class="sanctum">
+    <div class="sanctum-glow"></div>
+    <div class="rays"></div>
+    <div class="sanctum-text">
+      <div class="om">ॐ</div>
+      <div class="mal">ശുഭ വിവാഹം</div>
+      <div class="sig">Abhishek <span>&amp;</span> Anjana</div>
+    </div>
+    <div class="diya d1"><i></i></div><div class="diya d2"><i></i></div>
+  </div>
+  <div class="gopuram-top"></div>
+  <div class="door door-l"><div class="panel"></div><div class="panel"></div><div class="panel"></div><div class="studs"></div><div class="ring"></div></div>
+  <div class="door door-r"><div class="panel"></div><div class="panel"></div><div class="panel"></div><div class="studs"></div><div class="ring"></div></div>
+  <div class="intro-ui">
+    <div class="intro-small">ഓം ഗം ഗണപതയേ നമഃ</div>
+    <h1 class="intro-title">Abhishek <span>&amp;</span> Anjana</h1>
+    <p class="intro-sub">A little story of two hearts, blessed by the divine</p>
+    <button id="openDoor" class="btn-gold"><i class="bi bi-bell"></i> Tap to open the temple door</button>
+    <p class="intro-hint"><i class="bi bi-volume-up"></i> Sound on for the full experience</p>
+  </div>
+</div>
+
+<canvas id="fx"></canvas>
+<div class="vignette"></div>
+<div class="lightning" id="lightning"></div>
+
+<!-- Sound / music controls -->
+<div class="sound-ctl">
+  <button id="musicBtn" title="Music"><i class="bi bi-music-note-beamed"></i></button>
+  <button id="rainBtn" title="Rain on/off"><i class="bi bi-cloud-rain"></i></button>
+  <button id="addSong" title="Choose a song from your device"><i class="bi bi-folder2-open"></i></button>
+  <input type="file" id="songFile" accept="audio/*" hidden>
+</div>
+<audio id="bgm" loop preload="auto"></audio>
+
+<nav class="topnav">
+  <a href="#hero">Home</a><a href="#story">Our Story</a><a href="#details">Wedding</a><a href="#blessings">Blessings</a>
+</nav>
+
+<main id="app">
+
+<!-- ============ FULL-BLEED CINEMATIC PHOTO BANNER ============ -->
+<section id="hero" class="reference-hero">
+  <div class="reference-hero-photo" aria-hidden="true"></div>
+  <div class="reference-hero-shade" aria-hidden="true"></div>
+  <div class="reference-particles" aria-hidden="true">
+    <span>✦</span><span>❧</span><span>✧</span><span>❧</span><span>✦</span><span>❧</span><span>✧</span><span>❧</span>
+  </div>
+  <div class="reference-hero-content">
+    <p class="reference-eyebrow">A KERALA LOVE STORY · 26 NOVEMBER 2026</p>
+    <h1>Abhishek <span>&amp;</span><br>Anjana</h1>
+    <div class="reference-divider"></div>
+    <p class="reference-scriptline">A journey written in destiny</p>
+    <p class="reference-subline">From a sacred glance to a lifetime of togetherness</p>
+  </div>
+  <a class="reference-scroll" href="#story">SCROLL TO BEGIN <span>↓</span></a>
+  <button class="reference-music" id="heroMusic" type="button"><i class="bi bi-music-note"></i> Play our song</button>
+</section>
+
+<!-- ============ STORY ============ -->
+<section id="story">
+  <div class="section-head reveal">
+    <span class="eyebrow">A Love Story in Six Chapters</span>
+    <h2 class="script">Our Story</h2>
+    <p>Some stories begin with a grand gesture. Theirs began with a quiet glance inside a temple in Kerala.</p>
+  </div>
+
+  <div class="story-ornament" aria-hidden="true"><span>❧</span><i></i><span>ॐ</span><i></i><span>❧</span></div>
+  <!-- ch 1 -->
+  <article class="chapter reveal" data-mood="temple">
+    <div class="ch-text">
+      <div class="ch-no">Chapter 01</div>
+      <h3 class="script">The Temple Bell</h3>
+      <div class="ch-tag">Where destiny knocked</div>
+      <p>It was an ordinary day at the temple. The fragrance of jasmine drifted through the courtyard, lamps flickered near the sanctum, and somewhere between the prayers and the temple bells, their eyes met for the very first time.</p>
+      <p>There were no long conversations that day. Just a passing glance, a shy smile and a moment that neither could quite forget. They walked away as strangers, unaware that a beautiful story had quietly begun.</p>
+      <blockquote>“ആദ്യ കാഴ്ച - അമ്പലത്തിൽ വെച്ച്, ഈശ്വരൻ എഴുതിയ തുടക്കം.”</blockquote>
+    </div>
+    <figure class="photo" data-tilt><img src="images/photo1.jpg" alt="Abhishek and Anjana together beside a tree in Kerala" loading="lazy"><i class="grade"></i></figure>
+  </article>
+
+  <!-- ch 2 -->
+  <article class="chapter flip reveal" data-mood="rain">
+    <div class="ch-text">
+      <div class="ch-no">Chapter 02</div>
+      <h3 class="script">The Introduction</h3>
+      <div class="ch-tag">A hello that changed everything</div>
+      <p>A little introduction brought them together again. The familiar face from the temple now had a name — <b>Abhishek</b>. And the smile he remembered belonged to <b>Anjana</b>. A simple hello opened the door to a thousand conversations.</p>
+      <p>At first, the conversations were small and careful. But every hello made the next one easier. Like the first rain after summer, something gentle had started to grow.</p>
+      <blockquote>“Some meetings are just a beginning. This one was a promise.”</blockquote>
+    </div>
+    <figure class="photo" data-tilt><img src="images/photo3.jpg" alt="Abhishek and Anjana beside the lakeside greenery" loading="lazy"><i class="grade"></i></figure>
+  </article>
+
+  <!-- ch 3 -->
+  <article class="chapter reveal" data-mood="night">
+    <div class="ch-text">
+      <div class="ch-no">Chapter 03</div>
+      <h3 class="script">Phone Calls &amp; Midnight Messages</h3>
+      <div class="ch-tag">Where friendship turned to love</div>
+      <p>A “Good morning” became the start of each day; a “Good night” became the last message before sleep. Phone calls stretched late into the night, messages carried little smiles through busy days, and even the simplest moments felt special.</p>
+      <div class="chat">
+        <div class="bubble l">Did you reach home safely? <small>11:52 pm</small></div>
+        <div class="bubble r">Yes! Was just thinking of calling you... <small>11:53 pm</small></div>
+        <div class="bubble l">I was thinking the same. <small>11:53 pm</small></div>
+        <div class="bubble r">Then stay on the line. Just a little longer. <small>11:54 pm</small></div>
+      </div>
+      <p>Somewhere between those late calls and early messages, friendship quietly took off its disguise and became love.</p>
+    </div>
+    <figure class="photo" data-tilt><img src="images/photo2.jpg" alt="Abhishek and Anjana sharing a quiet moment in a green bamboo grove" loading="lazy"><i class="grade"></i></figure>
+  </article>
+
+  <!-- ch 4 -->
+  <article class="chapter flip reveal" data-mood="leaves">
+    <div class="ch-text">
+      <div class="ch-no">Chapter 04</div>
+      <h3 class="script">Two Months, One Answer</h3>
+      <div class="ch-tag">When the heart said “yes”</div>
+      <p>After two months of calls, messages and getting to know each other, their feelings had found a name. It was time to take the next step — together.</p>
+      <p>With hopeful hearts, they spoke to their families about the person who had become so important. It was a moment filled with anticipation, prayers and the hope that everyone would see what they saw in each other.</p>
+      <blockquote>“Ee snehathinu veettukaarude anugraham venam.”</blockquote>
+    </div>
+    <figure class="photo" data-tilt><img src="images/photo4.jpg" alt="Abhishek and Anjana beneath a canopy of bamboo" loading="lazy"><i class="grade"></i></figure>
+  </article>
+
+  <!-- ch 5 -->
+  <article class="chapter reveal" data-mood="lake">
+    <div class="ch-text">
+      <div class="ch-no">Chapter 05</div>
+      <h3 class="script">And Everyone Said Yes</h3>
+      <div class="ch-tag">Blessings, tears and sweet laughter</div>
+      <p>And the answer was happiness. Their families welcomed the relationship with love and blessings. What began as two people getting to know each other slowly became a bond between two families.</p>
+      <p>There were smiles, warm conversations and the comfort of knowing that the people they loved were happy too. With everyone’s blessings, their journey towards marriage began.</p>
+      <blockquote>“Ellaarum sammathichu. Ini ividam muthal oru yathra - onnichu.”</blockquote>
+    </div>
+    <figure class="photo" data-tilt><img src="images/photo6.jpg" alt="Abhishek and Anjana smiling together by the lake" loading="lazy"><i class="grade"></i></figure>
+  </article>
+
+  <!-- ch 6 -->
+  <article class="chapter flip reveal finale" data-mood="gold">
+    <div class="ch-text">
+      <div class="ch-no">Chapter 06</div>
+      <h3 class="script">The Wedding Chapter</h3>
+      <div class="ch-tag">The best chapter is just beginning</div>
+      <p>From one glance at a temple to a promise before family: every call, every message and every blessing has led them here. The nadaswaram is ready, the nilavilakku is glowing, and a new chapter is waiting.</p>
+      <p>On <b>Thursday, 26 November 2026</b>, Abhishek and Anjana begin their married life. They warmly invite you and your family to join them and bless their new beginning.</p>
+      <blockquote>“Ee kadha ivide theerunnilla... ithaanu thudakkam.”</blockquote>
+    </div>
+    <figure class="photo" data-tilt><img src="images/photo5.jpg" alt="Abhishek standing close behind Anjana beneath the trees" loading="lazy"><i class="grade"></i></figure>
+  </article>
+  <div class="theend reveal"><span class="script">Happily ever after begins…</span></div>
+</section>
+
+<!-- ============ DETAILS ============ -->
+<section id="details">
+  <div class="section-head reveal">
+    <span class="eyebrow">Cordially invite your esteemed presence with family</span>
+    <h2 class="script">The Wedding</h2>
+    <p>On the auspicious occasion of the marriage of our son</p>
+  </div>
+  <div class="container">
+    <div class="groom-bride reveal">
+      <div class="gb">
+        <h3 class="script big">Abhishek Mohan</h3>
+        <p>Son of <b>Mohanan K.</b> &amp; <b>Mini O.</b><br>Kochandil, Karuvattumkuzhy<br>Kareelakulangara P.O. – 690572</p>
+      </div>
+      <div class="with"><span>with</span></div>
+      <div class="gb">
+        <h3 class="script big">Anjana Suresh</h3>
+        <p>D/o <b>Suresh Kumar (Late)</b> &amp; <b>Mrs. Leela Suresh</b><br>Suresh Bhavanam, Edappon<br>Mavelikara</p>
+      </div>
+    </div>
+
+    <div class="row g-4 mt-4 detail-cards">
+      <div class="col-md-4 reveal"><div class="dcard"><i class="bi bi-calendar-heart"></i><h4>Date</h4><p><b>Thursday<br>26 November 2026</b></p><small>10th Vrischikam 1202</small></div></div>
+      <div class="col-md-4 reveal"><div class="dcard"><i class="bi bi-geo-alt"></i><h4>Venue</h4><p><b>Mass Auditorium<br>Mankamkuzhy, Mavelikara</b></p>
+        <a class="btn-line" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Mass+Auditorium+Mankamkuzhy+Mavelikara">Open in Maps</a></div></div>
+      <div class="col-md-4 reveal"><div class="dcard"><i class="bi bi-alarm"></i><h4>Muhurtham</h4><p><b>Between<br>12:10 pm &amp; 12:35 pm</b></p><small>Party leaves at 9:30 am</small></div></div>
+    </div>
+
+    <div class="rsvp reveal">
+      <p>For more details, please call</p>
+      <a class="btn-gold sm" href="tel:+918129752563"><i class="bi bi-telephone"></i> 81297 52563</a>
+      <a class="btn-gold sm" href="tel:+919747896035"><i class="bi bi-telephone"></i> 97478 96035</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BLESSINGS ============ -->
+<section id="blessings">
+  <div class="section-head reveal">
+    <span class="eyebrow">With best compliments from</span>
+    <h2 class="script">Reshma Richu · Richu Ramesh · Riya Richu</h2>
+    <p>Your presence and blessings will make our day complete.</p>
+  </div>
+  <div class="final reveal">
+    <div class="om">ॐ</div>
+    <p class="script big">See you at the mandapam</p>
+  </div>
+</section>
+</main>
+
+<!-- ============ KERALA CINEMATIC ANIMATION BANNER (MOVED TO BOTTOM) ============ -->\n<!-- ============ HERO ============ -->
+<section id="kerala-cinematic">
+  <div class="sky"></div>
+  <div class="sun"></div>
+  <div class="clouds"><i></i><i></i><i></i></div>
+  <svg class="land" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+    <defs>
+      <linearGradient id="hill1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5d7f62"/><stop offset="1" stop-color="#2d4a3a"/></linearGradient>
+      <linearGradient id="hill2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3f6a4c"/><stop offset="1" stop-color="#1d3a2c"/></linearGradient>
+      <linearGradient id="hill3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2a5239"/><stop offset="1" stop-color="#10261c"/></linearGradient>
+      <linearGradient id="lake" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f3b27a" stop-opacity=".9"/><stop offset=".5" stop-color="#5e8d8a"/><stop offset="1" stop-color="#1f4a4f"/></linearGradient>
+      <linearGradient id="templeg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#3a2a22"/><stop offset="1" stop-color="#1a110e"/></linearGradient>
+    </defs>
+    <g class="layer l1"><path d="M0 430 Q150 300 300 380 T560 340 T820 390 T1100 310 T1350 370 T1600 330 V800 H0Z" fill="url(#hill1)" opacity=".75"/></g>
+    <g class="layer l2"><path d="M0 500 Q200 400 380 470 T700 430 T1000 490 T1300 420 T1600 470 V800 H0Z" fill="url(#hill2)"/></g>
+    <g class="layer l3">
+      <!-- temple -->
+      <g transform="translate(1030 330)" fill="url(#templeg)">
+        <rect x="-110" y="190" width="220" height="20"/>
+        <rect x="-90" y="130" width="180" height="62"/>
+        <path d="M-80 130 L-62 92 H62 L80 130Z"/>
+        <path d="M-58 92 L-44 58 H44 L58 92Z"/>
+        <path d="M-40 58 L-28 30 H28 L40 58Z"/>
+        <path d="M-24 30 L0 -8 L24 30Z"/>
+        <rect x="-2" y="-34" width="4" height="30"/>
+        <circle cx="0" cy="-36" r="4" fill="#f6c667"/>
+        <rect x="-16" y="150" width="32" height="42" fill="#f6c667" opacity=".85"/>
+        <g fill="#f6c667" opacity=".7"><rect x="-70" y="150" width="10" height="30"/><rect x="60" y="150" width="10" height="30"/></g>
+      </g>
+      <!-- kerala houses/palms behind -->
+      <path d="M0 560 Q250 500 520 550 T1040 540 T1600 550 V800 H0Z" fill="url(#hill3)"/>
+    </g>
+    <g class="layer l4">
+      <rect x="0" y="620" width="1600" height="180" fill="url(#lake)"/>
+      <g class="ripples" stroke="#fff" stroke-opacity=".35" fill="none" stroke-width="1.5">
+        <ellipse cx="300" cy="690" rx="90" ry="6"/><ellipse cx="760" cy="720" rx="140" ry="8"/><ellipse cx="1240" cy="700" rx="110" ry="6"/>
+      </g>
+      <!-- temple reflection -->
+      <g opacity=".25" transform="translate(1030 700) scale(1 -.35)" fill="#f6c667"><path d="M-24 0 L0 -40 L24 0Z"/><rect x="-60" y="0" width="120" height="50"/></g>
+      <!-- kettuvallam -->
+      <g class="boat" transform="translate(380 668)">
+        <path d="M-100 0 Q0 24 100 0 L84 -12 H-84Z" fill="#1c120e"/>
+        <path d="M-50 -12 Q0 -52 56 -12Z" fill="#a8742c"/>
+        <path d="M-40 -14 Q0 -42 46 -14Z" fill="#d9a441" opacity=".6"/>
+        <rect x="-3" y="-60" width="3" height="48" fill="#1c120e"/>
+        <path d="M0 -58 L34 -36 L0 -30Z" fill="#f6c667"/>
+        <ellipse cx="0" cy="22" rx="110" ry="5" fill="#000" opacity=".15"/>
+      </g>
+    </g>
+    <g class="layer l5">
+      <!-- palms left -->
+      <g fill="#0b1a12" transform="translate(120 800)">
+        <path d="M0 0 Q-14 -260 10 -470 L22 -468 Q4 -260 22 0Z"/>
+        <g transform="translate(16 -470)">
+          <path d="M0 0 Q-80 -30 -150 20 Q-80 -10 0 8Z"/><path d="M0 0 Q-60 -80 -120 -80 Q-50 -60 0 8Z"/>
+          <path d="M0 0 Q80 -30 150 20 Q80 -10 0 8Z"/><path d="M0 0 Q60 -80 120 -80 Q50 -60 0 8Z"/><path d="M0 0 Q0 -90 -10 -120 Q14 -70 4 8Z"/>
+        </g>
+      </g>
+      <g fill="#0b1a12" transform="translate(260 800) scale(.7)">
+        <path d="M0 0 Q-14 -260 10 -470 L22 -468 Q4 -260 22 0Z"/>
+        <g transform="translate(16 -470)">
+          <path d="M0 0 Q-80 -30 -150 20 Q-80 -10 0 8Z"/><path d="M0 0 Q-60 -80 -120 -80 Q-50 -60 0 8Z"/>
+          <path d="M0 0 Q80 -30 150 20 Q80 -10 0 8Z"/><path d="M0 0 Q60 -80 120 -80 Q50 -60 0 8Z"/>
+        </g>
+      </g>
+      <g fill="#0b1a12" transform="translate(1480 800) scale(1.05)">
+        <path d="M0 0 Q14 -260 -10 -470 L-22 -468 Q-4 -260 -22 0Z"/>
+        <g transform="translate(-16 -470)">
+          <path d="M0 0 Q-80 -30 -150 20 Q-80 -10 0 8Z"/><path d="M0 0 Q-60 -80 -120 -80 Q-50 -60 0 8Z"/>
+          <path d="M0 0 Q80 -30 150 20 Q80 -10 0 8Z"/><path d="M0 0 Q60 -80 120 -80 Q50 -60 0 8Z"/><path d="M0 0 Q0 -90 -10 -120 Q14 -70 4 8Z"/>
+        </g>
+      </g>
+      <path d="M0 760 Q400 720 800 760 T1600 750 V800 H0Z" fill="#07130d"/>
+    </g>
+  </svg>
+
+  <div class="hero-content">
+    <div class="kicker">ഓം ഗം ഗണപതയേ നമഃ &nbsp;•&nbsp; We are getting married</div>
+    <h1 class="names"><span class="n1">Abhishek</span><span class="amp">&amp;</span><span class="n2">Anjana</span></h1>
+    <div class="date-line"><span></span><b>26 · 11 · 2026</b><span></span></div>
+    <div class="date-sub">Thursday &nbsp;|&nbsp; Muhurtham 12:10 pm – 12:35 pm &nbsp;|&nbsp; Mavelikara, Kerala</div>
+    <div class="countdown" id="countdown">
+      <div><b id="cd-d">00</b><small>Days</small></div><div><b id="cd-h">00</b><small>Hours</small></div>
+      <div><b id="cd-m">00</b><small>Minutes</small></div><div><b id="cd-s">00</b><small>Seconds</small></div>
+    </div>
+    <a href="#story" class="scroll-cue"><span>Scroll to begin our story</span><i class="bi bi-chevron-double-down"></i></a>
+  </div>
+
+  <!-- 3D couple -->
+  <div class="couple3d" id="couple3d" aria-hidden="true">
+    <div class="stage">
+      <div class="halo"></div>
+      <svg viewBox="0 0 420 520" class="figures">
+        <defs>
+          <linearGradient id="kasavu" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#f7ecd2"/><stop offset="1" stop-color="#e4cf9f"/></linearGradient>
+          <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#b8862b"/><stop offset=".5" stop-color="#f6d27b"/><stop offset="1" stop-color="#b8862b"/></linearGradient>
+          <linearGradient id="skinA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#b67a52"/><stop offset="1" stop-color="#8d5a3b"/></linearGradient>
+          <linearGradient id="skinB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#c0875c"/><stop offset="1" stop-color="#94613f"/></linearGradient>
+        </defs>
+        <!-- groom -->
+        <g class="groom" transform="translate(40 40)">
+          <ellipse cx="90" cy="440" rx="80" ry="12" fill="#000" opacity=".35"/>
+          <path d="M40 200 Q90 175 140 200 L150 330 H30Z" fill="#f4e7c8"/>
+          <path d="M30 330 H150 L160 440 H20Z" fill="url(#kasavu)"/>
+          <rect x="20" y="425" width="140" height="14" fill="url(#gold)"/>
+          <rect x="30" y="322" width="120" height="8" fill="url(#gold)"/>
+          <path d="M72 195 L90 240 L108 195Z" fill="#c78a5e"/>
+          <rect x="78" y="168" width="24" height="30" fill="url(#skinA)"/>
+          <ellipse cx="90" cy="140" rx="34" ry="40" fill="url(#skinA)"/>
+          <path d="M54 130 Q56 88 92 90 Q128 90 128 130 Q116 108 90 108 Q66 108 54 130Z" fill="#150b07"/>
+          <path d="M56 120 Q62 98 80 96 Q70 112 70 124Z" fill="#150b07"/>
+          <path d="M72 165 Q90 176 108 165 Q96 186 72 165Z" fill="#150b07" opacity=".6"/>
+          <path d="M150 215 Q190 250 175 320" stroke="url(#skinA)" stroke-width="22" fill="none" stroke-linecap="round"/>
+        </g>
+        <!-- bride -->
+        <g class="bride" transform="translate(205 70)">
+          <ellipse cx="90" cy="420" rx="80" ry="12" fill="#000" opacity=".35"/>
+          <path d="M44 190 Q90 170 136 190 L150 300 L180 430 H0 L30 300Z" fill="#f3e2b3"/>
+          <path d="M0 410 H180 V430 H0Z" fill="url(#gold)"/>
+          <path d="M10 360 H170" stroke="url(#gold)" stroke-width="6"/>
+          <path d="M36 195 Q70 300 140 380" stroke="url(#gold)" stroke-width="14" fill="none" opacity=".9"/>
+          <path d="M44 190 Q90 170 136 190 L128 230 Q90 210 52 230Z" fill="#8b1d2c"/>
+          <rect x="78" y="164" width="24" height="30" fill="url(#skinB)"/>
+          <ellipse cx="90" cy="138" rx="32" ry="38" fill="url(#skinB)"/>
+          <path d="M56 130 Q54 86 92 86 Q130 86 126 132 Q124 104 92 104 Q64 104 56 130Z" fill="#100806"/>
+          <path d="M118 120 Q150 220 138 330" stroke="#100806" stroke-width="18" fill="none" stroke-linecap="round"/>
+          <g fill="#ffe9a8"><circle cx="128" cy="150" r="3"/><circle cx="130" cy="164" r="3"/></g>
+          <circle cx="90" cy="108" r="4" fill="#d1352b"/>
+          <g class="jasmine" fill="#fff"><circle cx="132" cy="108" r="4"/><circle cx="140" cy="118" r="4"/><circle cx="144" cy="130" r="4"/><circle cx="146" cy="142" r="4"/></g>
+          <ellipse cx="62" cy="152" rx="4" ry="6" fill="url(#gold)"/>
+          <ellipse cx="118" cy="152" rx="4" ry="6" fill="url(#gold)"/>
+        </g>
+        <path class="garland" d="M120 235 Q210 330 300 250" stroke="#f08a24" stroke-width="10" fill="none" stroke-dasharray="3 7" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <small class="note3d">Move your mouse / tilt your phone</small>
+  </div>
+</section>
+
+\n<div class="footer-couple-scene" aria-label="Illustration of a bride and groom in traditional Kerala wedding attire">
+  <div class="footer-couple-glow"></div>
+  <svg class="footer-couple-art" viewBox="0 0 520 300" role="img" aria-hidden="true">
+    <ellipse cx="260" cy="274" rx="205" ry="15" fill="#080506" opacity=".32"/>
+    <!-- groom dhoti and body -->
+    <path d="M135 158 Q165 138 198 158 L215 260 L112 260Z" fill="#f1e4c8"/>
+    <path d="M112 245 L163 211 L215 245 L211 260 L112 260Z" fill="#d7bd84"/>
+    <path d="M136 160 Q126 185 112 211 L92 238 Q87 247 97 251 L112 247 L145 213 L163 180" fill="#a96e4c"/>
+    <path d="M194 160 Q214 182 220 214 L232 239 Q236 248 225 251 L211 246 L190 212 L178 180" fill="#a96e4c"/>
+    <path d="M136 153 Q162 137 197 153 L194 191 L139 191Z" fill="#e8d4ae"/>
+    <path d="M148 152 L165 182 L183 152" fill="none" stroke="#a47a39" stroke-width="5"/>
+    <rect x="150" y="124" width="30" height="35" rx="12" fill="#a96e4c"/>
+    <ellipse cx="165" cy="99" rx="34" ry="39" fill="#b77b56"/>
+    <path d="M132 97 Q128 59 165 56 Q200 57 200 96 Q185 75 164 77 Q145 76 132 97Z" fill="#17100e"/>
+    <path d="M145 111 Q164 121 184 111" fill="none" stroke="#5a3024" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="153" cy="99" r="2.8" fill="#20110d"/><circle cx="178" cy="99" r="2.8" fill="#20110d"/>
+    <!-- bride saree -->
+    <path d="M292 155 Q330 135 365 158 L399 260 L270 260Z" fill="#8e2334"/>
+    <path d="M280 214 Q337 232 391 212 L399 260 L270 260Z" fill="#d7a84e"/>
+    <path d="M292 155 Q270 187 254 219 L276 232 L315 183" fill="#c58c42"/>
+    <path d="M355 157 Q380 185 394 222 L380 235 L348 184" fill="#a96e4c"/>
+    <path d="M300 153 Q328 135 359 153 L354 187 L304 187Z" fill="#d8a44e"/>
+    <path d="M307 155 L329 190 L351 155" fill="none" stroke="#f5d98c" stroke-width="5"/>
+    <rect x="315" y="123" width="30" height="34" rx="12" fill="#b77b56"/>
+    <ellipse cx="330" cy="98" rx="33" ry="38" fill="#bd805a"/>
+    <path d="M297 100 Q294 55 331 55 Q369 55 364 108 Q355 78 331 77 Q309 78 297 100Z" fill="#17100e"/>
+    <path d="M300 90 Q284 142 303 182" fill="none" stroke="#17100e" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="319" cy="99" r="2.8" fill="#20110d"/><circle cx="342" cy="99" r="2.8" fill="#20110d"/>
+    <path d="M319 112 Q330 119 341 112" fill="none" stroke="#713b2d" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="330" cy="68" r="5" fill="#c53b35"/>
+    <path d="M294 132 Q330 150 366 132" fill="none" stroke="#f2cf7b" stroke-width="5"/>
+    <g fill="#fff3d5"><circle cx="362" cy="90" r="4"/><circle cx="369" cy="101" r="4"/><circle cx="372" cy="112" r="4"/></g>
+    <!-- garland -->
+    <path d="M190 153 Q260 213 305 153" fill="none" stroke="#e6a13d" stroke-width="7" stroke-linecap="round" stroke-dasharray="3 8"/>
+    <!-- tiny floating flower petals -->
+    <g fill="#e9c16c"><path d="M65 94q12-15 19 0q-10 12-19 0Z"/><path d="M438 123q12-15 19 0q-10 12-19 0Z"/><path d="M245 48q12-15 19 0q-10 12-19 0Z"/></g>
+    <g fill="#fff0d1" opacity=".8"><circle cx="90" cy="145" r="3"/><circle cx="430" cy="70" r="3"/><circle cx="235" cy="220" r="3"/></g>
+  </svg>
+  <div class="footer-couple-caption">A little blessing for their forever</div>
+</div>
+<footer>
+  <div class="foot-inner">
+    <div class="sig">Abhishek <span>&amp;</span> Anjana · 26.11.2026</div>
+    <div class="credit">Website designed and developed by <a href="https://www.orudesign.in" target="_blank" rel="noopener">www.orudesign.in</a></div>
+    <a class="insta" href="https://www.instagram.com/anandumohanmr/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/config.js"></script>
+<script src="js/sound.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
