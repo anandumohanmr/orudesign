@@ -41,7 +41,7 @@ const SFX = (() => {
     o.connect(g).connect(master); o.start(t); o.stop(t + 0.7);
   }
   function chime() {
-    init(); [1046, 1318, 1568, 2093].forEach((f, i) => setTimeout(() => bell(f, 0.08, 3), i * 140));
+    init(); [1046, 1318, 1568, 2093].forEach((f, i) => setTimeout(() => bell(f, 0.00, 0), i * 140));
   }
   function conch() {
     init(); const t = ctx.currentTime, o = ctx.createOscillator(), g = ctx.createGain(), f = ctx.createBiquadFilter();
